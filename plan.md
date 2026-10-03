@@ -4,7 +4,7 @@
 > **System Scope:** Enterprise Multi-Tenant AI Agent Behavioral Testing, Quality Gate (CI) & Uptime Drift Observability  
 > **Target Release:** Production v1.0 (Enterprise Ready)  
 > **Operational Stance:** Zero-Trust Security · Multi-Tenant Isolated · Highly Available · Compliance-Aligned (SOC2 Type II / HIPAA Posture)  
-> **Associated Specs:** [PRD.md](file:///l:/Projects/AgentGaurd/PRD.md) · [Architecture.md](file:///l:/Projects/AgentGaurd/Architecture.md) · [Design.md](file:///l:/Projects/AgentGaurd/Design.md) · [Rules.md](file:///l:/Projects/AgentGaurd/Rules.md) · [Tasks.md](file:///l:/Projects/AgentGaurd/Tasks.md) · [architecture.mmd](file:///l:/Projects/AgentGaurd/architecture.mmd)
+> **Associated Specs:** [PRD.md](./PRD.md) · [Architecture.md](./Architecture.md) · [Design.md](./Design.md) · [Rules.md](./Rules.md) · [Tasks.md](./Tasks.md) · [architecture.mmd](./architecture.mmd)
 
 ---
 
@@ -260,7 +260,7 @@ Phase 6: Production Release, Canary & Launch (Week 12) ──► Gate: 100% Prod
 - [ ] **Task 0.5: Next.js Enterprise Frontend Skeleton**
   - Initialize Next.js 14 (App Router) in `apps/web/` with strict TypeScript.
   - Install Tailwind CSS and shadcn/ui component system.
-  - Configure high-contrast, accessible dark/light theme tokens per [Design.md](file:///l:/Projects/AgentGaurd/Design.md).
+  - Configure high-contrast, accessible dark/light theme tokens per [Design.md](./Design.md).
 - [ ] **Task 0.6: CI/CD Quality Pipeline**
   - Build GitHub Actions workflow running `ruff` (lint & format), `mypy --strict`, `pytest` (unit & integration with testcontainers), `eslint`, `tsc`, and `vitest`.
 - [ ] **Task 0.7: Pre-Commit Security Hooks**
@@ -411,7 +411,7 @@ Phase 6: Production Release, Canary & Launch (Week 12) ──► Gate: 100% Prod
 
 *Goal: Final verification, staged deployment rollout, and operational readiness handover.*
 
-- [ ] **Product Sign-off:** All Must-Have and Should-Have requirements from [PRD.md](file:///l:/Projects/AgentGaurd/PRD.md) verified and signed off.
+- [ ] **Product Sign-off:** All Must-Have and Should-Have requirements from [PRD.md](./PRD.md) verified and signed off.
 - [ ] **Quality Sign-off:** CI 100% green; code coverage $\ge 85\%$; golden dataset confirms no metric $\kappa$ regression $> 0.03$.
 - [ ] **Security Sign-off:** Secrets rotated; administrative accounts protected with MFA; privacy policies active.
 - [ ] **Operational Sign-off:** Production monitoring and alerting active; runbooks documented in `docs/runbooks/`; on-call rotation established.
@@ -423,7 +423,7 @@ Phase 6: Production Release, Canary & Launch (Week 12) ──► Gate: 100% Prod
 
 To immediately begin executing this production blueprint:
 
-1. **Monorepo Structure:** Initialize the directory tree according to [plan.md](file:///l:/Projects/AgentGaurd/plan.md) §5.
+1. **Monorepo Structure:** Initialize the directory tree according to [plan.md](./plan.md) §5.
 2. **Infrastructure Stack:** Provision `deploy/docker-compose.dev.yml` with Postgres 16 (pgvector), Redis 7, MinIO, and LiteLLM.
 3. **Core API Service:** Build FastAPI app with async database pooling, base repository with `org_id` isolation, and RFC 7807 error handling.
 4. **Target Adapter Framework:** Author async `TargetAdapter` protocol and outbound SSRF validator.

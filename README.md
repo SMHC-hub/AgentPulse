@@ -1,6 +1,6 @@
 # AgentPulse — CI & Continuous Behavioral Observability for AI Agents
 
-[![CI Tests](https://img.shields.io/badge/CI%20Tests-38%20Passing-emerald?style=flat-square)](file:///l:/Projects/AgentGaurd/apps/api/tests/)
+[![CI Tests](https://img.shields.io/badge/CI%20Tests-38%20Passing-emerald?style=flat-square)](./apps/api/tests/)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-1.0.0-009688?style=flat-square)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square)](https://nextjs.org)
