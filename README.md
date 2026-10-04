@@ -1,13 +1,13 @@
 # AgentPulse — CI & Continuous Behavioral Observability for AI Agents
 
-[![CI Tests](https://img.shields.io/badge/CI%20Tests-38%20Passing-emerald?style=flat-square)](./apps/api/tests/)
+[![CI](https://github.com/SMHC-hub/AgentPulse/actions/workflows/agentpulse-ci.yml/badge.svg)](https://github.com/SMHC-hub/AgentPulse/actions/workflows/agentpulse-ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-1.0.0-009688?style=flat-square)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square)](https://nextjs.org)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue?style=flat-square)](./LICENSE)
 [![Calibration](https://img.shields.io/badge/Judge%20Agreement-%CE%BA%20%3D%200.82%20(Substantial)-blueviolet?style=flat-square)](./docs/benchmark-report.md)
 
-> **AgentPulse** is an enterprise-grade reliability and continuous behavioral observability platform for conversational and voice AI agents. It bridges the gap between pre-deployment continuous integration (CI) red-teaming and post-deployment statistical drift monitoring.
+> **AgentPulse** is a reliability and continuous behavioral evaluation platform for conversational and voice AI agents. It bridges the gap between pre-deployment continuous integration (CI) test suites and post-deployment statistical drift monitoring.
 
 ---
 
@@ -51,15 +51,15 @@ flowchart TD
    - Drive 50–500 synthetic customer personas against any chat/voice agent before merging prompt or model changes.
    - Fail pipelines automatically (`agentpulse run --fail-under 0.85`) with JUnit XML test reports.
 2. **Anti-Hallucination Evidence Enforcement**:
-   - Every failure verdict requires a code-verified verbatim quote from the raw transcript. Eliminates 88% of false positive evaluator errors.
+   - Every failure verdict requires a code-verified verbatim quote from the raw transcript, reducing evaluator false positives across the evaluation cohort (measured at κ = 0.82 agreement against 200 human labels).
 3. **Statistical Production Drift Detection**:
    - Two-proportion $z$-test ($p < 0.01$, $\Delta \ge 5\%$, $n \ge 30$) and Welch's $t$-test detect degraded accuracy or safety in live production.
 4. **1-Click Regression Synthesis**:
    - Turn live production failures into permanent regression test scenarios with a single click.
-5. **Zero-Trust Enterprise Hardening**:
+5. **Zero-Trust Hardening**:
    - Multi-tenant PostgreSQL Row-Level Security (RLS), sliding-window rate limiting, cryptographic prompt-injection defense, and fast-fail circuit breakers.
-6. **High-Definition Neumorphic Light UI**:
-   - Tactile porcelain interface (`#EEF2F6`), electric sapphire blue accents (`#2563EB`), dual box-shadow elevations, and glowing amber evidence illumination conforming to WCAG 2.1 AA.
+6. **Tactile Light UI**:
+   - Light interface (`#EEF2F6`), electric sapphire blue accents (`#2563EB`), dual box-shadow elevations, and glowing amber evidence illumination conforming to WCAG 2.1 AA.
 
 ---
 
@@ -70,7 +70,7 @@ flowchart TD
 docker compose -f deploy/docker-compose.dev.yml up -d
 ```
 Services available:
-- **Interactive Neumorphic Dashboard**: `http://localhost:3000`
+- **Interactive Dashboard**: `http://localhost:3000`
 - **Core API & Swagger Documentation**: `http://localhost:8000/docs`
 - **Prometheus Metrics Scraping Endpoint**: `http://localhost:8000/metrics`
 
@@ -86,6 +86,9 @@ async def main():
             # Your agent processes the utterance
             agent_response = "We accept returns within 30 days with receipt."
             conversation.add_turn(role="agent", content=agent_response, latency_ms=115.0)
+
+async def run():
+    await main()
 
 asyncio.run(main())
 ```
@@ -103,13 +106,13 @@ agentpulse run --agent-id agent_ecommerce --suite-id suite_demo_core --fail-unde
 As documented in [docs/benchmark-report.md](./docs/benchmark-report.md), benchmarked against human consensus gold standards ($N=200$):
 - **Judge Agreement**: Cohen's $\kappa = 0.82$ (Substantial Agreement) using open-weight `Qwen2.5-32B`.
 - **Cost**: **$0.08 per 100 multi-turn conversations** (17.7x cheaper than proprietary cloud APIs).
-- **Regression Sensitivity**: 100% detection rate on prompt-injection jailbreaks; 95.2% on subtle policy hallucinations.
+- **Benchmark Sensitivity ($N=200$ test set)**: Detected all prompt-injection jailbreak test cases and 95.2% of subtle policy hallucination samples in the evaluation cohort.
 
 ---
 
 ## Documentation Index
 
-- **Architecture Blueprint**: [`plan.md`](./plan.md) & [`architecture.mmd`](./architecture.mmd)
+- **Architecture Blueprint**: [`docs/plan.md`](./docs/plan.md) & [`architecture.mmd`](./architecture.mmd)
 - **UI Design System Tokens**: [`Design.md`](./Design.md)
 - **Production Operations Runbook**: [`docs/runbooks/operations-runbook.md`](./docs/runbooks/operations-runbook.md)
 - **Empirical Benchmark Study**: [`docs/benchmark-report.md`](./docs/benchmark-report.md)
